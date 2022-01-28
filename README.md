@@ -22,3 +22,15 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+
+#### Notes
+
+In order to create and run project
+
+```
+  vue create todo-list
+
+  npm run serve
+```
