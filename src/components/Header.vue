@@ -3,6 +3,7 @@
     <h1>{{ title }}</h1>
     <div class="btn-group">
     <Button color="green" text="Add Task"/>
+    <!-- <Button v-on:click="onClick()" color="green" text="Add Task"/> -->
     <!-- <Button color="blue" text="Update Task"/>
     <Button color="red" text="Delete Task"/> -->
     </div>
