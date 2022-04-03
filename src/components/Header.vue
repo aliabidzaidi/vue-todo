@@ -2,7 +2,10 @@
   <header>
     <h1>{{ title }}</h1>
     <div class="btn-group">
-    <Button color="green" text="Add Task"/>
+    <Button 
+    :color="showAddTask ? 'red': 'green'" 
+    :text="showAddTask ? 'Close' : 'Add Task'" 
+    @toggle-add-task="$emit('toggle-add-task')"/>
     <!-- <Button v-on:click="onClick()" color="green" text="Add Task"/> -->
     <!-- <Button color="blue" text="Update Task"/>
     <Button color="red" text="Delete Task"/> -->
@@ -17,6 +20,7 @@ export default {
   name: "Header",
   props: {
       title: String,
+      showAddTask: Boolean,
   },
   components: {
     Button

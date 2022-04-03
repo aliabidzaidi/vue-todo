@@ -1,32 +1,50 @@
 <template>
   <div class="container">
-    <Header title="Task Tracker" />
-
-    <Tasks @delete-task="deleteTask" :tasks="tasks" />
+    <Header title="Task Tracker" @toggle-add-task="toggleAddTask" :showAddTask="showAddTask"/>
+    <div v-if="showAddTask"> <!-- v-show -->
+      <AddTask @add-task="addTask"/>
+    </div>
+    <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
   </div>
 </template>
 
 <script>
-import Header from "./components/Header";
-import Tasks from "./components/Tasks";
+import Header from "./components/Header"
+import Tasks from "./components/Tasks"
+import AddTask from "./components/AddTask"
 
 export default {
   name: "App",
   components: {
     Header,
     Tasks,
+    AddTask,
   },
   data() {
     return {
       tasks: [],
+      showAddTask: false,
     };
   },
   methods: {
+    addTask(newTask){
+      this.tasks = [...this.tasks, newTask]
+    },
+
     deleteTask(id) {
       // console.log("task received ", id);
       if(confirm('Are you sure you want to delete this Task?'))
         this.tasks = this.tasks.filter((task) => task.id !== id);
     },
+
+    toggleReminder(id){
+      // console.log('Status change kro mera :', id)
+      this.tasks = this.tasks.map((task)=> task.id === id ? { ...task, reminder: !task.reminder}: task)
+    },
+
+    toggleAddTask(){
+      this.showAddTask = !this.showAddTask
+    }
   },
   created() {
     this.tasks = [
@@ -66,7 +84,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 10px;
+  /* margin-top: 10px; */
+  width: 50%;
+  margin: auto;
+  padding: 20px;
+  background-color: #ebebeb;
   /* border: 3px solid salmon; */
 }
 
