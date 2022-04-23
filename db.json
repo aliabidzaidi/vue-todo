@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Learn Vue JS",
+      "day": "28/1/2022",
+      "reminder": true
+    },
+    {
+      "id": 2,
+      "text": "Explore Vuetify",
+      "day": "5/2/2022",
+      "reminder": false
+    },
+    {
+      "id": 3,
+      "text": "Kick start quasar",
+      "day": "10/2/2022",
+      "reminder": false
+    },
+    {
+      "id": 4,
+      "text": "Dive into VPP",
+      "day": "30/1/2022",
+      "reminder": true
+    }
+  ]
+}
